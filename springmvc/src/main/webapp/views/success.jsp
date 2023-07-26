@@ -13,10 +13,12 @@
     <title>Hello, world!</title>
   </head>
   <body>
+
  <div className="container">
-  <h4>Welcome ${name}</h4>
-  <h4>Email : ${email}</h4>
-  <h4>Password : ${password}</h4>
+ <h1>Registration Form </h1>
+  <h4>Welcome ${user.name}</h4>
+  <h4>Email : ${user.email}</h4>
+  <h4>Password : ${user.password}</h4>
 
  </div>
 

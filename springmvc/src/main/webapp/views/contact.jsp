@@ -14,7 +14,7 @@
   </head>
   <body>
   <div class="container mt-5">
-  <h4 class="text-center">Resgistration form</h3>
+  <h4 class="text-center">Registration Form </h4>
   <form action="/processform" method="post">
       <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
