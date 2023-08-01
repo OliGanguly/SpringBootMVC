@@ -1,4 +1,4 @@
-package com.example.springmvc.model;
+package com.example.springmvc.entities;
 
 public class User {
     private String name;

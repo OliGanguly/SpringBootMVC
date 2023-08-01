@@ -2,15 +2,10 @@ package com.example.springmvc.Controller;
 
 
 
+import com.example.springmvc.entities.User;
 import org.springframework.ui.Model;
-import com.example.springmvc.model.User;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ContactController {
@@ -27,11 +22,11 @@ public class ContactController {
 
         return "contact";
     }
-    @ModelAttribute
-    public void coominData(Model model){
-
-        model.addAttribute("header","Registration Form");
-    }
+//    @ModelAttribute
+//    public void coominData(Model model){
+//
+//        model.addAttribute("header","Registration Form");
+//    }
 
 
     /*
@@ -53,16 +48,16 @@ public class ContactController {
         return "success";
     }
 * */
-@RequestMapping(path = "/processform",method = RequestMethod.POST)
-public String processForm(@RequestParam( name = "email" , required = true) String email,
-                          @RequestParam("name") String name,
-                          @RequestParam("password") String password,
-                          Model model){
-    model.addAttribute("name",name);
-    model.addAttribute("email",email);
-    model.addAttribute("password",password);
-    return "success";
-}
+//@RequestMapping(path = "/processform",method = RequestMethod.POST)
+//public String processForm(@RequestParam( name = "email" , required = true) String email,
+//                          @RequestParam("name") String name,
+//                          @RequestParam("password") String password,
+//                          Model model){
+//    model.addAttribute("name",name);
+//    model.addAttribute("email",email);
+//    model.addAttribute("password",password);
+//    return "success";
+//}
 
 
 
@@ -96,6 +91,12 @@ public String processForm(@RequestParam( name = "email" , required = true) Strin
         //model.addAttribute("header","Registration Form");
         return "success";
     }
+    @RequestMapping("/user/{userId}")
+    public String example(@PathVariable int userId){
+        System.out.println("userId :"+ userId);
+        return "success";
+    }
+
 
 
 }
@@ -122,8 +123,19 @@ public String processForm(@RequestParam( name = "email" , required = true) Strin
 /*
 * Query parameter = our database - backend append parameter at the end of the url = conditions
 * http://localhost:8080/products?order=popular&filter=new
+*
 * path variable = mentioning variable in url path
+* this value keep on changing based on my requirment I can change it
 * http://localhost:8080/products/popular
 * http://localhost:8080/products/popular/new
 * */
+
+//    @RequestMapping("/book/{id}")
+//    public String handler(@PathVariable ("id")int id){
+//
+//    }
+
+
+
+
 
