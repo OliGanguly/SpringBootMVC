@@ -29,8 +29,11 @@ public class ContactController {
     }
     @ModelAttribute
     public void coominData(Model model){
+
         model.addAttribute("header","Registration Form");
     }
+
+
     /*
      * get data from view to controller
      * two ways
@@ -50,6 +53,16 @@ public class ContactController {
         return "success";
     }
 * */
+@RequestMapping(path = "/processform",method = RequestMethod.POST)
+public String processForm(@RequestParam( name = "email" , required = true) String email,
+                          @RequestParam("name") String name,
+                          @RequestParam("password") String password,
+                          Model model){
+    model.addAttribute("name",name);
+    model.addAttribute("email",email);
+    model.addAttribute("password",password);
+    return "success";
+}
 
 
 
@@ -86,3 +99,31 @@ public class ContactController {
 
 
 }
+/* @RequryParam
+* Map query parameter , which backend append at the end of the url
+* @RequestParam (required=true) boolean festival
+* http://localhost:8080/holidays?feveral=true&festival=false
+*
+* plus @ReqParam map form data coming from view to controller
+* @RequestParam ("email") String email
+*
+* */
+
+/*
+ * @PathVariable- extract value from URl
+ * http://localhost:8080/holidays/all
+ * http://localhost:8080/holidays/feveral
+ *
+ * @GetMapping("/holidays/{display}")
+ * public String displayHolidays(@Pathvariable String display){
+ * }
+ * */
+
+/*
+* Query parameter = our database - backend append parameter at the end of the url = conditions
+* http://localhost:8080/products?order=popular&filter=new
+* path variable = mentioning variable in url path
+* http://localhost:8080/products/popular
+* http://localhost:8080/products/popular/new
+* */
+
